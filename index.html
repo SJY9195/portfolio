@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoon Seok Jung's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gilda+Display&family=Nothing+You+Could+Do&family=Rock+Salt&display=swap" rel="stylesheet">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url(https://i.pinimg.com/564x/07/f9/a5/07f9a506256af78596d36fbec54ce1b5.jpg);
+            /*background-color: #bababa; 회색 배경*/
+            background-size: cover;/* 화면에 맞게 이미지 크기 조정 */
+            background-position: center; /* 이미지 중앙 정렬 */
+            background-repeat: no-repeat; /* 이미지 반복 방지 */
+            padding: 0px;
+            min-height: 100vh; /* 페이지의 최소 높이 설정 */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 80px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .header h3 {
+            font-size: x-large;
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Gilda Display', serif; /* Apply the custom font */
+            margin-bottom: 300px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+          /* Navigation Bar */
+          .navbar {
+            background-color: #FFD700;
+            padding: 10px;
+            text-align: center;
+            position: fixed; /* Fixed at the top */
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Aleo', serif;
+            font-size: 1.2rem;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: #000;
+        }
+
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 180px);
+            gap:70px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .button-grid img {
+            width:auto; 
+            height:auto;
+            object-fit: cover; 
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-top: -70px; /* Adjust top margin to move image down */
+         }
+
+        .button-grid div {
+            background-color: #FFD700;
+            color: #fcfcfc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Nothing You Could Do', cursive; 
+            font-size: 1.6rem;
+            height: 180px;
+            width: 180px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About, Skills Section */
+        #ABOUT{  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align : center;
+            width : 100%;
+            font-family: "Aleo", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom : 30px;
+            margin-top : -20px;
+        }
+        
+
+        .skills {
+            background-color: #FFD700;
+            padding: 70px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 300px;
+            display : flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items : center;
+        }
+
+        .skills img {
+            border-radius: 50%;
+            height: 200px;
+            object-fit: cover;
+            width : 200px;
+            margin-bottom: 20px;
+        }
+
+
+        .skills-list {
+            display: grid;
+            color :#fffff3;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            font-size: x-large;
+            font-family: "Rock Salt", cursive;
+            font-weight: 400;
+            font-style: normal;
+            margin-left: 50px;
+            margin-top : 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .skills-text {
+            max-width: 5800px;
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Gilda Display', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* Projects Section */
+
+        #PROJECTS{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            font-family: "Aleo", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .projects {
+            background-color: #FFD700;
+            padding: 100px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 300px;
+            height: 150px;
+        }
+    /*위치를 margin으로 주지말고 고정시키는 방법 찾기*/
+        /* Contact Section */
+        #CONTACT{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            font-family: "Aleo", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .contact {
+            background-color: #FFD700;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact div {
+            margin-bottom: 20px;
+        }
+
+        .contact strong{
+            font-family: "Aleo", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .contact-info {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-family: "Aleo", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    padding-top: 60px;
+      <!-- Navigation Bar -->
+      <div class="navbar">
+        <a href="#ABOUT">ABOUT</a>
+        <a href="#PROJECTS">PROJECTS</a>
+        <a href="#CONTACT">CONTACT</a>
+    </div>
+
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="button-grid">
+            <div>YES</div>
+            <div>CAN</div>
+            <div>ACHIEVE</div>
+            <div>ACCOMPLISH</div>
+            <div>DO</div>
+            <div>PEACE</div>
+            <div>I</div>
+            <div>WANT</div>
+            <div>SMILE</div>
+            <img src="image/drawing1.png" alt="Custom Image">
+        </div>
+        <h3>YOON SEOK JUNG</h3>
+    </div>
+
+
+    <!-- ABOUT, Skills Section -->
+    <div class="container skills">
+        <h2 id = ABOUT>ABOUT</h2>
+        <img src="image/profile.jpg" alt="Profile Image">
+        <div class="skills-text">
+            <p>안녕하세요! 풀스택 개발자가 되기 위해 노력하고 있는 주니어 개발자 윤석중입니다!</p>
+            <p>항상 긍정적인 마음으로 노력 끝에 성취를 달성하고 싶습니다.</p>
+        </div>
+        <div class="skills-list">
+            <div>Java</div>
+            <div>Jenkins</div>
+            <div>MySQL</div>
+            <div>AWS</div>
+            <div>HTML</div>
+            <div>Next.js</div>
+            <div>CSS</div>
+            <div>Flutter</div>
+            <div>JS</div>
+            <div>REACT</div>
+            <div>Spring + JPA</div>
+            <div>Docker</div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+
+    <div class="container projects">
+        <h2 id = PROJECTS>PROJECTS</h2>
+        <!-- Add your project details here -->
+    </div>
+
+    <!-- Contact Section -->
+
+    <div class="container contact">
+        <h2 id = CONTACT>CONTACT</h2>
+        <div>
+            <strong>Email:</strong>
+            <div class="contact-info">dbstjrwnd123@gmail.com</div>
+        </div>
+        <div>
+            <strong>Phone:</strong>
+            <div class="contact-info">010-2875-9195</div>
+        </div>
+        <div>
+            <strong>Address:</strong>
+            <div class="contact-info">경기도 용인시</div>
+        </div>
+    </div>
+    <div id="qr-code" style="text-align: center; margin-top: 20px;"></div>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 SeokJung's Portfolio</p>
+        </footer>
+        
+        <script>
+        $(document).ready(function() {
+            var url = window.location.href; // 현재 페이지 URL
+            $('#qr-code').qrcode({
+                text: url,
+                width: 128,
+                height: 128,
+            });
+        });
+    </script>
+</body>
+</html>
